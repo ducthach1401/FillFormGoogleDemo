@@ -1,19 +1,91 @@
 from selenium import webdriver
 from ThuVienTen import *
+from ThuvienTinh import *
+import chromedriver_binary
+import time
 
-n=int(input('Nhap so lan dien form: '))
-list_name=thuvienten(n)
-
+# n=int(input('Nhap so lan dien form: '))
+n=10
+list_name=thuvientinh(n)
 for i in range(n):
-	url="https://forms.gle/4grzQLgP1YEFQ63F7"
+	url="https://forms.gle/b3oBuSfiPsFPNN8A9"
 	browser=webdriver.Chrome()
 	browser.get(url)
-	fill=browser.find_element_by_name('entry.1609267383')
-	fill.send_keys(list_name[i])
-	fill=browser.find_element_by_name('entry.1548460402')
-	fill.send_keys('Random')
-	for i in browser.find_elements_by_xpath('//*[@role="radio"]'):
-	     i.click()
 	browser.find_elements_by_xpath('//*[@role="button"]')[0].click()
+	time.sleep(2)
+	x=browser.find_elements_by_xpath('//*[@role="radio"]')
+	x[1].click()
+	temp=random.randrange(4,6)
+	x[temp].click()
+
+	fill=browser.find_elements_by_name('entry.1254686015')
+	time.sleep(0.5)
+	tam=random.randrange(len(list_name))
+	fill[0].send_keys(list_name[tam])
+	
+	x[7].click()
+	temp=random.randrange(13,15)
+	x[temp].click()
+	temp=random.randrange(16,19)
+	x[temp].click()
+	temp=random.randrange(20,24)
+	x[temp].click()
+	temp=random.randrange(24,27)
+	x[temp].click()
+	temp=random.randrange(28,31)
+	x[temp].click()
+	browser.find_elements_by_xpath('//*[@role="button"]')[1].click()
+	time.sleep(2)
+
+	x=browser.find_elements_by_xpath('//*[@role="radio"]')
+	temp=random.randrange(1,3)
+	x[temp].click()
+	temp=random.randrange(3,5)
+	x[temp].click()
+	temp=random.randrange(6,9)
+	x[temp].click()
+	temp=random.randrange(9,15)
+	x[temp].click()
+	temp=random.randrange(16,19)
+	x[temp].click()
+	browser.find_elements_by_xpath('//*[@role="button"]')[1].click()
+	time.sleep(2)
+
+	x=browser.find_elements_by_xpath('//*[@role="radio"]')
+	temp=random.randrange(0,6)
+	x[temp].click()
+	temp=random.randrange(6,9)
+	x[temp].click()
+	temp=random.randrange(6,9)
+	x[temp].click()
+	temp=random.randrange(11,14)
+	x[temp].click()
+	temp=random.randrange(15,17)
+	x[temp].click()
+	browser.find_elements_by_xpath('//*[@role="button"]')[1].click()
+	time.sleep(2)
+
+
+	x=browser.find_elements_by_xpath('//*[@role="radio"]')
+	temp=random.randrange(0,4)
+	x[temp].click()
+	temp=random.randrange(5,10)
+	x[temp].click()
+	temp=random.randrange(10,16)
+	x[temp].click()
+	browser.find_elements_by_xpath('//*[@role="button"]')[1].click()
+	time.sleep(2)
+
+	x=browser.find_elements_by_xpath('//*[@role="radio"]')
+	temp=random.randrange(0,3)
+	x[temp].click()
+	temp=random.randrange(4,9)
+	x[temp].click()
+	x[10].click()
+	temp=random.randrange(12,14)
+	x[temp].click()
+	browser.find_elements_by_xpath('//*[@role="button"]')[1].click()
+	time.sleep(2)
+	browser.find_elements_by_xpath('//*[@role="button"]')[1].click()
 	browser.quit()
 print('Done')
